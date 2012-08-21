@@ -1,10 +1,4 @@
 <%= form_for([@post, @post.comments.build]) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="errors">
-      There were errors!
-    <% end %>
-  </div>
-
   <div class="field">
     <%= f.label :commenter %><br />
     <%= f.text_field :commenter %>

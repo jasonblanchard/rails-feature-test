@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
     :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? }}
 
   def author
-    @author_id = self.user_id
+    @author_id = user_id
     @author = User.find(@author_id).email
   end 
 

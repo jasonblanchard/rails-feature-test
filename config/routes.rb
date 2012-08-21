@@ -7,7 +7,7 @@ Railsdocsblog::Application.routes.draw do
   match '/login' => "sessions#new", :as => "login"
   match '/logout' => "sessions#destroy", :as => "logout"
 
-  root :to => "home#index"
+  root :to => "posts#index"
   resources :users
 end
 
