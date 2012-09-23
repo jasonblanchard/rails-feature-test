@@ -2,27 +2,39 @@
 <html>
 <head>
   <title>Railsdocsblog</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "bootstrap/css/bootstrap.css" %>
+  <%= stylesheet_link_tag "styles.css" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body style="background: #EEEEEE;">
+<body>
   <div class="header">
-    <h1><%= link_to "Blog", posts_path %></h1>
-  </div>
+    <div class="site-title">
+      <h1><%= link_to "Blog", posts_path %></h1>
+    </div>
 
   <div class="user-menu">
     <% if logged_in? %>
-      <%= current_user.email %> |
-      <%= link_to 'New post', new_post_path %> |
-      <%= link_to 'Edit password', edit_user_path(current_user) %> |
-      <%= link_to 'Log out', logout_path %>
-    <% else %>
-      <%= link_to 'Log In', login_path %> |
-      <%= link_to 'Create account', new_user_path %>
-    <% end %>
+      <%= current_user.email %>
+      <div class="action-buttons btn-group">
+        <button class="btn"><%= link_to 'New post', new_post_path %></button>
+        <button class="btn"><%= link_to 'Edit password', edit_user_path(current_user) %></button>
+        <button class="btn"><%= link_to 'Log out', logout_path %></button>
+      </div>
+      <% else %>
 
-<%= yield %>
+      <div class="action-buttons btn-group">
+        <button class="btn"><%= link_to 'Log In', login_path %></button>
+        <button class="btn"><%= link_to 'Create account', new_user_path %></button>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+    <div class="main-content">
+      <%= yield %>
+    </div>
 
 </body>
 </html>
