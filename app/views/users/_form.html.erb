@@ -3,7 +3,7 @@
     <div id="errors-explanation">
       <h2><%=pluralize(@user.errors.count, "error") %> prohibited this user from bring saved: </h2>
       <ul>
-        <% @user.errors.full.message.each do |msg| %>
+        <% @user.errors.full_messages.each do |msg| %>
           <li><%= msg %>
         <% end %>
       </ul>
