@@ -4,7 +4,7 @@
       <strong><%=pluralize(@user.errors.count, "error") %></strong>
       <ul>
         <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %>
+          <li><strong>%= msg %></strong>
         <% end %>
       </ul>
     </div>
@@ -23,7 +23,7 @@
           <%= f.password_field :password_confirmation %>
         </div>
         <div class="actions">
-          <%= f.submit %>
+          <%= f.submit :class => "btn" %>
         </div>
       <% end %>
 
