@@ -1,1 +1,7 @@
-<%= simple_format @revision.content %>
+<div class="revision-info">
+  <span class="label label-info"><%= @revision.created_at %> by <%= @revision.post.user.email %></span>
+</div>
+<br />
+<div class="revision">
+  <%= simple_format @revision.content %>
+</div>
