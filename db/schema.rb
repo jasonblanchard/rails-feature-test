@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(:version => 20120925020445) do
     t.integer  "user_id"
   end
 
+  create_table "profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.text     "bio"
+  end
+
+  add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
+
   create_table "revisions", :force => true do |t|
     t.text     "content"
     t.integer  "post_id"
