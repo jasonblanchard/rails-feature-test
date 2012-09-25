@@ -4,13 +4,13 @@ class PostsController < ApplicationController
 
   def create_history
     @post = Post.find(params[:id])
-    @revision = @post.revisions.create( :content => @post.content)
+    @revision = @post.revisions.create( :content => @post.content, :created_at => @post.updated_at)
   end
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all(:order => "created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
