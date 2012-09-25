@@ -1,6 +1,9 @@
 Railsdocsblog::Application.routes.draw do
+  get "revisions/index"
+
   resources :posts do
     resources :comments
+    resources :revisions
   end
   
   resource :session

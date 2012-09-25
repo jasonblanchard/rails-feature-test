@@ -1,5 +1,11 @@
 class PostsController < ApplicationController
   before_filter :authenticate, :except => [:index, :show]
+  before_filter :create_history, :only => :update
+
+  def create_history
+    @post = Post.find(params[:id])
+    @revision = @post.revisions.create( :content => @post.content)
+  end
 
   # GET /posts
   # GET /posts.json

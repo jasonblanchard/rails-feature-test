@@ -1,0 +1,7 @@
+<h4>Revisions</h4>
+
+<% @revisions.each do |r| %>
+  <div>
+    <%= link_to r.created_at, post_revisions_path(@post, r) %> by <%= r.post.user.email %>
+  </div>
+<% end %>
