@@ -10,8 +10,8 @@
   </div>
   <% if post.owned_by?(current_user) %>
   <div class="actions">
-    <i class="icon-pencil"></i><%= link_to 'Edit', edit_post_path(post) %> |
-    <i class="icon-trash"></i><%= link_to 'Delete', post, :method => :delete, data: { confirm: "Are you sure?" } %>
+    <i class="icon-pencil"></i> <%= link_to 'Edit', edit_post_path(post) %> |
+    <i class="icon-trash"></i> <%= link_to 'Delete', post, :method => :delete, data: { confirm: "Are you sure?" } %>
   </div>
 <% end %>
   <br />
