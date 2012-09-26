@@ -3,7 +3,7 @@
     <h4><%= link_to post.title, post %></h4>
   </div>
   <div class="author">
-    <h4><small>Written by: <%= post.author %></small></h4>
+    <h4><small>Written by: <%= post.author %> at <%= post.created_at %></small></h4>
   </div>
   <div class="post-content">
     <%= simple_format post.content %>
