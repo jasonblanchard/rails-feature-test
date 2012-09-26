@@ -10,7 +10,6 @@
 }
 
 .user-menu {
-  width: 300px;
   float: right;
   margin: 10px;
 }
@@ -24,9 +23,3 @@
 .edit_post textarea, input {
   width: 600px;
 }
-
-.new_post textarea, input {
-  width: 600px;
-}
-
-
