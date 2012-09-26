@@ -3,9 +3,14 @@
 <div class="actions">
   <% if @post.owned_by?(current_user) %>
     <div class='btn-group'>
-      <button class='btn'><%= link_to 'Edit', edit_post_path(@post) %></button>
-      <button class="btn"><%= link_to 'Delete', @post, :method => 'delete', data: { confirm: 'Are you sure?' } %></button>
-      <button class="btn"><%= link_to 'Revisions', post_revisions_path(@post) %></button>
+      <%= link_to 'Edit', edit_post_path(@post), :class => "btn btn-small" %></button>
+      <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><%= link_to 'Delete', @post, :method => 'delete', data: { confirm: 'Are you sure?' } %></li>
+        <li><%= link_to 'Revisions', post_revisions_path(@post) %></li>
+      </ul>
     </div>
     <% end %>
 </div>
@@ -15,11 +20,13 @@
 
 <%= simple_format @post.content %>
 
-<p>
-  <b>Tags:</b>
-  <%= join_tags(@post) %>
-</p>
-
+<% unless @post.tags.empty? %>
+  <p>
+    <b>Tags:</b>
+    <%= join_tags(@post) %>
+  </p>
+<% end %>
+<hr>
 <h4>Comments</h3>
 <%= render @post.comments %>
 

@@ -27,3 +27,7 @@
 ul.user-dropdown {
   margin-left: 106px;
 }
+
+textarea {
+  width: 600px;
+}
