@@ -19,7 +19,7 @@
     <% if logged_in? %>
 
       <div class="btn-group user-menu-links">
-      <button class="btn"><i class="icon-pencil"></i> <%= link_to 'New post', new_post_path %></button>
+         <%= link_to raw('<i class="icon-pencil"></i> New post'), new_post_path, :class => "btn" %></a>
       <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-user"></i> <%= current_user.email %>
       <span class="caret"></span>
     </a>
