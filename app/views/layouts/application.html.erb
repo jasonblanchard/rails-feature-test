@@ -20,11 +20,10 @@
 
       <div class="btn-group user-menu-links">
       <button class="btn"><i class="icon-pencil"></i> <%= link_to 'New post', new_post_path %></button>
-        <button class="btn"><i class="icon-user"></i> <%= current_user.email %></button>
-        <button class="btn dropdown-toggle" data-toggle="dropdown">
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-user"></i> <%= current_user.email %>
+      <span class="caret"></span>
+    </a>
+        <ul class="dropdown-menu user-dropdown">
           <li><%= link_to 'Edit password', edit_user_path(current_user) %></li>
           <li><%= link_to 'Log out', logout_path %></li>
         </ul>

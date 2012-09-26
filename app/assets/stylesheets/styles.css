@@ -23,3 +23,7 @@
 .edit_post textarea, input {
   width: 600px;
 }
+
+ul.user-dropdown {
+  margin-left: 106px;
+}
