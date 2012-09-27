@@ -15,25 +15,23 @@
     <% end %>
 </div>
 
+<div class="post-content">
+  <h3><%= @post.title %></h3>
 
-<h3><%= @post.title %></h3>
+  <%= simple_format @post.content %>
 
-<%= simple_format @post.content %>
+  <% unless @post.tags.empty? %>
+    <p>
+      <b>Tags:</b>
+      <%= join_tags(@post) %>
+    </p>
+  <% end %>
+</div>
 
-<% unless @post.tags.empty? %>
-  <p>
-    <b>Tags:</b>
-    <%= join_tags(@post) %>
-  </p>
-<% end %>
+<%= link_to "Add a comment", new_post_comment_path(@post, :format => :js), :remote => true, :id => 'new-comment-link' %>
+
 <hr>
 <div id="post-comments">
   <h4>Comments</h3>
   <%= render @post.comments %>
 </div>
-
-<h4><small>Add a comment:</small></h4>
-<%= render "comments/form" %>
-<br />
-
-
