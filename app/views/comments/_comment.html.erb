@@ -1,17 +1,17 @@
-<p>
-    <b>Commentor:</b>
-    <%= comment.commenter %>
-</p>
+<%= div_for comment do %>
+  <p>
+      <b>Commentor:</b>
+      <%= comment.commenter %>
+  </p>
 
-<p>
-    <b>Comment:</b>
-    <%= comment.body %>
-    <p>
-      <% if comment.post.owned_by?(current_user) %>
-        <%= link_to 'Destroy Comment', [comment.post, comment], 
-        :confirm => "Are you sure?",
-        :method => :delete %>
-    <% end %>
+  <p>
+      <b>Comment:</b>
+      <%= comment.body %>
+      <p>
+        <% if comment.post.owned_by?(current_user) %>
+          <%= link_to 'Destroy Comment', [comment.post, comment], :confirm => "Are you sure?", :method => :delete, :remote => true %>
+      <% end %>
+      </p>
+      <hr />
     </p>
-    <hr />
-</p>
+  <% end %>
