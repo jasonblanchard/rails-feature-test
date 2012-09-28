@@ -1,3 +1,27 @@
+<script type="text/javascript">
+  $(document).ready( function() {
+      
+      $('#post_content').wysihtml5();
+      
+      $('button#html-source').toggle(function() {
+        $('div.header').append("<div class='test'>test</div>");
+        $('button#html-source').addClass('active');
+        $('iframe.wysihtml5-sandbox').hide();
+        $('ul.wysihtml5-toolbar').css('visibility','hidden')
+        $('textarea#post_content').show();
+      }, function() {
+        $('div.test').remove();
+        $('button#html-source').removeClass('active');
+        $('iframe.wysihtml5-sandbox').show();
+        $('textarea#post_content').hide();
+        $('ul.wysihtml5-toolbar').css('visibility','visible')
+      });
+      
+  });
+</script>
+
+
+
 <% @post.tags.build %>
 <%= form_for(@post) do |post_form| %>
     <% if @post.errors.any? %>
@@ -20,6 +44,7 @@
     <%= post_form.label :content %><br />
     <%= post_form.text_area :content %>
   </div>
+    <button type="button" class="btn" id="html-source" data-toggle="button">Source Mode</button>
   <h2>Tags</h2>
   <%= render :partial => 'tags/form',
             :locals => {:form => post_form } %>
@@ -27,3 +52,4 @@
     <%= post_form.submit :class => "btn" %>
   </div>
 <% end %>
+
