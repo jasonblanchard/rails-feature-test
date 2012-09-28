@@ -5,3 +5,8 @@
 <div class="revision">
   <%= simple_format @revision.content %>
 </div>
+
+<div class="diff">
+  <h4>Diff between this revision and current version</h4>
+  <%= raw @diff.to_s(:html) %>
+</div>

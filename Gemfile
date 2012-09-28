@@ -39,3 +39,4 @@ gem 'jquery-rails'
 
 gem 'bootstrap-wysihtml5-rails'
 
+gem 'diffy'
